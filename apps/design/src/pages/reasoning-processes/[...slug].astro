@@ -1,0 +1,122 @@
+---
+import { getCollection, render } from 'astro:content';
+import { ChevronRight, House } from '@lucide/svelte';
+import { imageSizeFromFile } from 'image-size/fromFile';
+import { blog, owner } from '../../lib/config';
+import datePrettier from '../../lib/datePrettier';
+
+import Layout from '../../layouts/Page.astro';
+import ArticleSidebar from '../../components/ArticleSidebar.astro';
+
+export async function getStaticPaths() {
+    const posts = await getCollection('blog');
+
+    return posts.map(post => ({
+        params: {
+            slug: post.id,
+        },
+        props: {
+            post,
+        },
+    }));
+}
+
+function getReadTime(text, wordsPerMinute = 200) {
+    if (!text || typeof text !== 'string') return '0 minutes read';
+
+    const wordRegex = /\S+/g;
+    let wordCount = 0;
+
+    for (const match of text.matchAll(wordRegex)) wordCount++;
+
+    const minutes = Math.ceil(wordCount / wordsPerMinute);
+    return `${minutes} ${minutes === 1 ? 'minute' : 'minutes'} read`;
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const readTime = getReadTime(post.body);
+const imageDimensions = post.data.image
+    ? await imageSizeFromFile('./public/res/blog/featured/' + post.data.image)
+    : undefined;
+
+const articleMetadata = {
+    author: owner.displayName,
+    section: blog.title.long,
+    publishedTime: post.data.date.toISOString(),
+    ...(post.data.hook && {
+        description: post.data.hook,
+    }),
+    ...(post.data.image && {
+        image: {
+            url: `/res/blog/featured/${post.data.image}`,
+            width: imageDimensions?.width,
+            height: imageDimensions?.height,
+        },
+    }),
+    type: 'article',
+};
+---
+
+<Layout pageTitle={post.data.title} {articleMetadata}>
+    <section
+        class="flex flex-1 flex-col gap-6 mx-auto mt-6 mb-12 px-12 pt-28 leading-8 w-full max-w-screen-xl"
+    >
+        <nav class="flex items-center gap-2 text-gray-500 text-sm uppercase">
+            <a
+                href="/"
+                class="inline-flex items-center gap-1 hover:text-blue-500"
+            >
+                <House size={16} />
+                {import.meta.env.PUBLIC_APP_NAME}
+            </a>
+            <ChevronRight size={16} />
+            <a href={blog.path} class="hover:text-blue-500">
+                {blog.title.long}
+            </a>
+        </nav>
+        <article class="flex flex-col gap-9">
+            <div class="flex flex-col gap-6 xl:max-w-[900px]">
+                <h1 class="text-5xl lg:text-[3.5rem] leading-14 lg:leading-16">
+                    {post.data.title}
+                </h1>
+                <p class="text-gray-500">
+                    Published {
+                        datePrettier(
+                            Math.trunc(post.data.date.getTime() / 1000),
+                            {
+                                date: true,
+                            },
+                        )
+                    }
+                    <span class="mx-1">&mdash;</span>
+                    {readTime}
+                </p>
+                {
+                    post.data.hook && (
+                        <p class="text-xl leading-9">{post.data.hook}</p>
+                    )
+                }
+            </div>
+            {
+                post.data.image && (
+                    <div
+                        class="bg-gray-500 bg-cover bg-center bg-no-repeat aspect-191/100 lg:aspect-5/2 rounded-2xl shadow"
+                        style={`background-image: url(/res/blog/featured/${post.data.image});`}
+                    />
+                )
+            }
+            <div class="flex flex-col-reverse xl:flex-row items-start gap-6">
+                <ArticleSidebar title={post.data.title} />
+                <div
+                    class:list={[
+                        'prose xl:ms-auto max-w-none xl:max-w-[900px]',
+                        'prose-h2:my-6 prose-h3:my-4 prose-li:prose-p:my-0',
+                    ]}
+                >
+                    <Content />
+                </div>
+            </div>
+        </article>
+    </section>
+</Layout>

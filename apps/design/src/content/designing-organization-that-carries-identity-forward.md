@@ -1,0 +1,44 @@
+---
+title: "Designing an Organization That Carries Its Identity Forward"
+date: 2026-03-14 15:46
+hook: "Organizations change as members come and go, but their identity can outlive them. I learned this while trying to understand what made CCI recognizable in the first place."
+image: "cci-jacket.webp"
+---
+
+When I first joined Central Computer Improvement back in 2013, I didn't really understand what it meant to belong to an organization built around a certain interest. I joined the well-known CCI because I was interested in technology, so I chose Web Development and Games and Gadget. Yet after a while, I barely found any activity happening in either division. I knew almost nobody and eventually stopped going to the secretariat room. I was technically a member, but I didn't feel like I was participating in anything.
+
+That changed when I returned to CCI in 2014. By then, I had become more active in other student organizations, and I wanted to do activities rather than simply hold another membership. I started to understand that participating in an organization was also about finding a way to contribute, develop, and feel that your presence mattered. That experience eventually made me look at CCI differently, especially as I became more involved with how its identity and relationships were maintained.
+
+## An Identity Worth Preserving
+
+CCI already had a strong identity when I became more involved with it. The organization had existed since 2004 and had developed through several generations of students, while its role had also changed as the university environment changed. After the formation of Telkom University in 2013, CCI went through a merger with Polkomzone, which became the Networking division. The merger itself wasn't the problem. What interested me more was how an organization could absorb change without losing the identity that made people recognize it as Central Computer Improvement.
+
+One of the first things I paid attention to was CCI's logo. At the time, I found two versions being used, and one of them looked like an attempt to redraw the familiar logo without really improving what was already there. Why we needed another version in the first place? The original logo was already recognizable, had a distinctive infinity-like form, and had been associated with CCI for years, so redesigning the concept simply for the sake of having a cleaner logo didn't make much sense to me.
+
+What I did instead was refine the existing logo thoughtfully. I adjusted the geometry to make the form more symmetrical and standardized the typeface so that Central Computer Improvement would no longer appear to have competing versions of its own identity. The changes were relatively small, perhaps only visible to particularly keen eyes. But they mattered because the problem was never that CCI lacked an identity, but the identity people already recognized wasn’t being maintained consistently over time. That distinction became important because I started to see identity design less as an opportunity to leave my mark and more as a responsibility to make something that already belonged to the organization easier for the next generation to inherit and maintain.
+
+The same thinking eventually led me to create Cici, CCI's mascot. I initially designed her as a cute character that could attract attention during the 2015 open recruitment period and help people recognize CCI more easily. I didn't expect the character to become much more than that, but the Design division later developed Cici as a character through illustrations and animation. What started as a recruitment artifact became another piece of organizational memory that could be reused and interpreted by people who joined after I did.
+
+I also approached physical artifacts as part of the same problem. The Students CCI press uniform was designed around the practical needs of people working as student journalists, while the CCI organizational jacket was designed to be something anyone could wear comfortably in everyday situations. I wanted the jacket to work with whatever someone was already wearing, whether they were going to class, sitting in the canteen, or going somewhere with other members. Only after designing it did I realize that this practicality also expressed something I wanted the organization to communicate. Belonging should feel accessible rather than requiring someone to fit a particular image.
+
+## The Problem of Continuity
+
+The more involved I became with CCI, the more I realized that maintaining an organization wasn't only about maintaining its visual identity. CCI had members, divisions, committees, alumni, and many generations, but those relationships didn't automatically remain connected. People graduated, new members arrived, committees changed, and responsibilities moved from one person to another. An organization therefore had to preserve something beyond its immediate activities if it wanted to remain recognizable over time.
+
+I encountered another side of this problem through Media Management. The mechanisms we created to keep the division active eventually made it somewhat self-contained, and I began to see how strengthening one part of an organization could unintentionally change its relationship with the larger whole. Because I had been part of that process myself, I didn't see it as a matter of blaming the division. It was another indication that organizational identity was shaped not only by what each part did, but also by how those parts remained connected.
+
+This became especially apparent when I became an extraordinary member after my committee period officially ended. Normally, this status meant that a former committee member had finished their organizational responsibilities and could concentrate fully on their studies. I started to see another possibility emerging. If extraordinary members had already accumulated experience and understood the organization’s history, why should their knowledge disappear the moment their formal responsibilities ended completely?
+
+I began reframing extraordinary members more like a steering committee or advisory layer. The current committee still had the authority to run the organization, but they could consult people from previous generations when facing problems that required broader experience. This arrangement didn't need to turn former members into permanent decision makers. It simply created a way for organizational knowledge to remain available without preventing the next generation from taking control.
+
+This way of thinking also made me appreciate the infinity-like form of CCI's logo even more. I started to see it as more than a graphic identity, because the continuous form indeed represent relationships between members, generations, and activities that didn't simply end when someone's formal position ended. The organization could change while the relationship between its generations continued.
+
+## Designing for Stewardship
+
+After spending roughly six years around CCI, including returning to active involvement after resuming my studies in 2018, I realized that many of the things I learned there were difficult to learn inside a classroom. CCI gave me opportunities to initiate something without knowing whether it would work, question an existing practice, deal with consequences, and understand how one decision could affect people somewhere else in the organization. Those experiences gradually changed how I understood design itself.
+
+I had started by thinking about design through artifacts such as logos, mascots, uniforms, and other communication materials. CCI taught me to see those artifacts as parts of a larger system. The same principle applied to organizational structures and relationships. A design could help preserve recognition, communicate belonging, or retain knowledge, but none of those things could sustain an organization by themselves.
+
+That is why I now think about organizational design in terms of stewardship. Designing an organization is partly about deciding what should change, but it is equally about recognizing what should remain meaningful when the people who created it are no longer there. The designer may leave, the committee will eventually change, and new members will reinterpret what they inherit. What matters is whether the system gives them enough structure, memory, and freedom to continue shaping it themselves.
+
+Central Computer Improvement was one of the places where I learned that design doesn't always mean creating something new. Sometimes it means noticing what already exists, understanding why it matters, correcting what prevents it from working, and leaving enough behind for someone else to carry forward. That is a different kind of design responsibility, because the final outcome isn't something I can completely own. It is something I can only help the next generation inherit.

@@ -1,0 +1,121 @@
+---
+import { getCollection } from 'astro:content';
+import { CalendarDays, ChevronLeft, ChevronRight } from '@lucide/svelte';
+import { blog } from '../../lib/config';
+import datePrettier from '../../lib/datePrettier';
+
+import Layout from '../../layouts/Page.astro';
+
+const pageTitle = blog.title.long;
+
+export async function getStaticPaths({ paginate }) {
+    const posts = await getCollection('blog');
+    posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+    return paginate(posts, { pageSize: blog.pageSize });
+}
+
+const { page } = Astro.props;
+const offset = blog.pageSize * (page.currentPage - 1);
+---
+
+<Layout {pageTitle}>
+    {
+        page.data.length > 0 ? (
+            <div class="flex flex-col gap-6">
+                {page.data.map((post, i) => (
+                    <div
+                        class:list={[
+                            'pt-3 border-t-1 border-gray-300',
+                            { 'mt-3': i > 0 },
+                        ]}
+                    >
+                        <a
+                            href={`${blog.path}/${post.id}/`}
+                            class="flex flex-col md:flex-row gap-3 md:gap-6"
+                        >
+                            <div class="w-full md:w-48">
+                                {post.data.image ? (
+                                    <div
+                                        class="bg-gray-500 bg-cover bg-center bg-no-repeat aspect-191/100 rounded-2xl md:rounded-lg shadow"
+                                        style={`background-image: url(/res/blog/featured/${post.data.image});`}
+                                    />
+                                ) : (
+                                    <div class="flex justify-center items-center p-3 bg-gray-200 text-gray-500 min-w-12 text-4xl font-light aspect-191/100 rounded-2xl md:rounded-lg shadow">
+                                        #
+                                        {String(offset + (i + 1)).padStart(
+                                            2,
+                                            '0',
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+                            <div class="flex flex-1 flex-col gap-2">
+                                <div class="text-2xl">{post.data.title}</div>
+                                <div class="flex items-center gap-2 text-gray-500 text-sm">
+                                    <CalendarDays size={16} />
+                                    {datePrettier(
+                                        Math.trunc(
+                                            post.data.date.getTime() / 1000,
+                                        ),
+                                        { date: true },
+                                    )}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                ))}
+            </div>
+        ) : (
+            <div class="my-auto text-gray-500 text-center">
+                - There are currently no posts to show -
+            </div>
+        )
+    }
+
+    {
+        (page.data.length >= blog.pageSize || page.currentPage > 1) && (
+            <nav class="join gap-1 mx-auto">
+                <a
+                    href={page.url.prev}
+                    class="join-item btn"
+                    title="Navigate to previous page"
+                    disabled={page.currentPage === 1}
+                >
+                    <ChevronLeft size={16} />
+                </a>
+
+                {Array.from({ length: page.lastPage }, (_, i) => {
+                    const pageNumber = i + 1;
+                    const href =
+                        pageNumber === 1
+                            ? `${blog.path}/`
+                            : `${blog.path}/${pageNumber}/`;
+
+                    return pageNumber === page.currentPage ? (
+                        <span class="join-item btn text-black" disabled>
+                            {pageNumber}
+                        </span>
+                    ) : (
+                        <a
+                            href={href}
+                            class="join-item btn"
+                            title={`Go to page ${pageNumber}`}
+                        >
+                            {pageNumber}
+                        </a>
+                    );
+                })}
+
+                <a
+                    href={page.url.next}
+                    class="join-item btn"
+                    title="Navigate to next page"
+                    disabled={page.currentPage === page.lastPage}
+                >
+                    <ChevronRight size={16} />
+                </a>
+            </nav>
+        )
+    }
+</Layout>

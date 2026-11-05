@@ -1,0 +1,74 @@
+---
+import { Menu } from '@lucide/svelte';
+import { blog } from '../lib/config';
+
+const navigations = [
+    {
+        link: blog.path,
+        text: blog.title.short,
+        title: blog.title.long,
+    },
+    {
+        link: '/philosophy-and-approach',
+        text: 'Philosophy',
+        title: 'Philosophy and Approach',
+    },
+];
+---
+
+<header class="fixed px-6 py-4 top-0 left-0 w-full z-1200">
+    <div
+        class="flex justify-center items-center px-6 h-18 bg-white/85 border-1 border-gray-300 rounded-xl shadow-lg backdrop-blur-xs"
+    >
+        <a
+            href="/"
+            class="text-2xl me-auto cursor-pointer outline-none ring-0 active:ring-0 focus:ring-0"
+            data-header-title
+        >
+            {import.meta.env.PUBLIC_APP_NAME}
+        </a>
+        <nav class="hidden md:flex items-center gap-6 me-3">
+            {
+                navigations.map(item => (
+                    <a href={item?.link} title={item?.title}>
+                        {item?.text}
+                    </a>
+                ))
+            }
+        </nav>
+        {
+            !!navigations.length && (
+                <div class="dropdown dropdown-end md:hidden">
+                    <div tabindex="0" role="button" class="btn">
+                        <Menu size={18} />
+                    </div>
+                    <ul
+                        tabindex="-1"
+                        class="dropdown-content menu p-2 bg-base-100 w-48 rounded-box top-15 z-1 shadow"
+                    >
+                        {navigations.map(item => (
+                            <li>
+                                <a href={item?.link}>{item?.text}</a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )
+        }
+    </div>
+</header>
+
+<script>
+    const btn = document.querySelector('[data-header-title]');
+
+    btn?.addEventListener('click', evt => {
+        if (evt.ctrlKey || evt.metaKey) return;
+
+        if (window.location.pathname === '/') {
+            evt.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+            window.location.assign('/');
+        }
+    });
+</script>

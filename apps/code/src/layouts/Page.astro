@@ -1,0 +1,19 @@
+---
+import Layout from './Layout.astro';
+import PageTitle from '../components/PageTitle.astro';
+
+const { pageTitle, articleMetadata } = Astro.props;
+---
+
+<Layout {pageTitle} {articleMetadata}>
+    {articleMetadata?.type === 'article' ? (
+        <slot />
+    ) : (
+        <PageTitle {pageTitle} />
+        <main
+            class="flex flex-1 flex-col gap-6 mx-auto mt-6 mb-12 px-12 leading-8 w-full max-w-screen-lg"
+        >
+            <slot />
+        </main>
+    )}
+</Layout>

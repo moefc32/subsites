@@ -1,0 +1,57 @@
+---
+const { type } = Astro.props;
+---
+
+<footer
+    class="flex flex-col md:flex-row gap-1 mx-6 mt-3 py-3 md:py-6 border-t-1 border-gray-300 text-gray-500 text-center"
+>
+    <div class="flex-1 text-center md:text-left">
+        <span data-copyright>
+            <a
+                href="https://mf-chan.com"
+                class="text-blue-500 hover:text-green-500 underline transition"
+                >Mfc</a
+            > &copy;
+        </span>
+    </div>
+    {
+        type === 'article' ? (
+            <div class="flex-1 text-center md:text-right">
+                Web under{' '}
+                <a
+                    href="https://opensource.org/licenses/MIT"
+                    target="_blank"
+                    class="inline-block text-blue-500 hover:text-green-500 underline transition"
+                >
+                    MIT
+                </a>{' '}
+                &bull; Articles under{' '}
+                <a
+                    href="https://creativecommons.org/licenses/by/4.0/"
+                    target="_blank"
+                    class="inline-block text-blue-500 hover:text-green-500 underline transition"
+                >
+                    CC BY 4.0
+                </a>
+            </div>
+        ) : (
+            <div class="flex-1 text-center md:text-right">
+                This web project is licensed under{' '}
+                <a
+                    href="https://opensource.org/licenses/MIT"
+                    target="_blank"
+                    class="inline-block text-blue-500 hover:text-green-500 underline transition"
+                >
+                    MIT
+                </a>
+            </div>
+        )
+    }
+</footer>
+
+<script>
+    const getYear = new Date().getFullYear();
+    const currentYear = (getYear > 2018 ? '2018 - ' : '') + getYear;
+
+    document.querySelector('[data-copyright]').append(` ${currentYear}`);
+</script>

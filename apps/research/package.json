@@ -1,0 +1,33 @@
+{
+    "name": "research",
+    "private": true,
+    "version": "0.0.1",
+    "type": "module",
+    "scripts": {
+        "dev": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "deploy": "test -f .env && (astro build && wrangler deploy) || echo 'Error occured, deploy aborted!'"
+    },
+    "devDependencies": {
+        "@tailwindcss/typography": "^0.5.20",
+        "@tailwindcss/vite": "^4.3.4",
+        "@vite-pwa/astro": "^1.2.0",
+        "daisyui": "^5.7.50",
+        "tailwindcss": "^4.3.4",
+        "wrangler": "^4.157.0"
+    },
+    "dependencies": {
+        "@astrojs/markdown-satteri": "^0.4.6",
+        "@astrojs/mdx": "^8.1.2",
+        "@astrojs/svelte": "^9.1.2",
+        "@fontsource-variable/noto-sans": "^5.3.0",
+        "@lucide/svelte": "^1.68.0",
+        "aos": "^2.3.4",
+        "astro": "^7.4.5",
+        "image-size": "^2.0.4",
+        "ky": "^1.14.3",
+        "svelte": "^5.57.3",
+        "svelte-sonner": "^1.2.3"
+    }
+}
